@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UploadXMLConsoleApp", "UploadXMLConsoleApp\UploadXMLConsoleApp.csproj", "{EC84B0F8-A818-4712-B1EE-7B00DE7F5802}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EC84B0F8-A818-4712-B1EE-7B00DE7F5802}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC84B0F8-A818-4712-B1EE-7B00DE7F5802}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC84B0F8-A818-4712-B1EE-7B00DE7F5802}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC84B0F8-A818-4712-B1EE-7B00DE7F5802}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {352D005D-F250-40FC-BC06-AC3C188210DA}
+	EndGlobalSection
+EndGlobal
