@@ -16,62 +16,97 @@ namespace UploadXMLConsoleApp
                     XmlDocument xmlDocument = new XmlDocument();
                     xmlDocument.Load(path);
 
+                    // Получаем корневой элемент
                     XmlElement xmlRoot = xmlDocument.DocumentElement;
 
-                    Client client = new Client();
+                    // Выбераем все узлы "Card" из XML документа
+                    XmlNodeList xmlNodeList = xmlRoot.SelectNodes("Card");
 
-                    foreach (XmlNode xnode in xmlRoot)
+                    // Обходим все узлы в корневом элементе
+                    foreach (XmlNode xnode in xmlNodeList)
                     {
-                        XmlNode attr0 = xnode.Attributes.GetNamedItem("CARDCODE");
-                        client.CardCode = Convert.ToDouble(attr0.InnerText);
+                        // Создаем объект класса "Client"
+                        Client client = new Client();
 
-                        XmlNode attr1 = xnode.Attributes.GetNamedItem("STARTDATE");
-                        client.StartDate = attr1.Value;
+                        // Получаем значение атрибутов, в корневом элементе, и передаем их в свойства объекта класса "Client"
+                        XmlNode cardCodeXml = xnode.Attributes.GetNamedItem("CARDCODE");
+                        client.CardCode = Convert.ToDouble(cardCodeXml.InnerText);
 
-                        XmlNode attr2 = xnode.Attributes.GetNamedItem("FINISHDATE");
-                        client.FinishDate = attr2.Value;
+                        XmlNode startDateXml = xnode.Attributes.GetNamedItem("STARTDATE");
+                        client.StartDate = startDateXml.Value;
 
-                        XmlNode attr3 = xnode.Attributes.GetNamedItem("LASTNAME");
-                        client.Lastname = attr3.Value;
+                        XmlNode finishDateXml = xnode.Attributes.GetNamedItem("FINISHDATE");
+                        client.FinishDate = finishDateXml.Value;
 
-                        XmlNode attr4 = xnode.Attributes.GetNamedItem("FIRSTNAME");
-                        client.Firstname = attr4.Value;
+                        XmlNode lastnameXml = xnode.Attributes.GetNamedItem("LASTNAME");
+                        client.Lastname = lastnameXml.Value;
 
-                        XmlNode attr5 = xnode.Attributes.GetNamedItem("SURNAME");
-                        client.Surname = attr5.Value;
+                        XmlNode firstnameXml = xnode.Attributes.GetNamedItem("FIRSTNAME");
+                        client.Firstname = firstnameXml.Value;
 
-                        XmlNode attr6 = xnode.Attributes.GetNamedItem("GENDER");
-                        client.Gender = attr6.Value;
+                        XmlNode surnameXml = xnode.Attributes.GetNamedItem("SURNAME");
+                        client.Surname = surnameXml.Value;
 
-                        XmlNode attr7 = xnode.Attributes.GetNamedItem("BIRTHDAY");
-                        client.Birthday = attr7.Value;
+                        XmlNode fullNameXml = xnode.Attributes.GetNamedItem("FULLNAME");
+                        client.FullName = fullNameXml.Value;
 
-                        XmlNode attr8 = xnode.Attributes.GetNamedItem("PHONEHOME");
-                        client.PhoneHome = attr8.Value;
+                        XmlNode genderIdXml = xnode.Attributes.GetNamedItem("GENDERID");
+                        client.GenderId = genderIdXml.Value;
 
-                        XmlNode attr9 = xnode.Attributes.GetNamedItem("PHONEMOBIL");
-                        client.PhoneMobil = attr9.Value;
+                        XmlNode birthdayXml = xnode.Attributes.GetNamedItem("BIRTHDAY");
+                        client.Birthday = birthdayXml.Value;
 
-                        XmlNode attr10 = xnode.Attributes.GetNamedItem("EMAIL");
-                        client.Email = attr10.Value;
+                        XmlNode phoneHomeXml = xnode.Attributes.GetNamedItem("PHONEHOME");
+                        client.PhoneHome = phoneHomeXml.Value;
 
-                        XmlNode attr11 = xnode.Attributes.GetNamedItem("CITY");
-                        client.City = attr11.Value;
+                        XmlNode phoneMobilXml = xnode.Attributes.GetNamedItem("PHONEMOBIL");
+                        client.PhoneMobil = phoneMobilXml.Value;
 
-                        XmlNode attr12 = xnode.Attributes.GetNamedItem("STREET");
-                        client.Street = attr12.Value;
+                        XmlNode emailXml = xnode.Attributes.GetNamedItem("EMAIL");
+                        client.Email = emailXml.Value;
 
-                        XmlNode attr13 = xnode.Attributes.GetNamedItem("HOUSE");
-                        client.House = attr13.Value;
+                        XmlNode cityXml = xnode.Attributes.GetNamedItem("CITY");
+                        client.City = cityXml.Value;
 
-                        XmlNode attr14 = xnode.Attributes.GetNamedItem("APARTMENT");
-                        client.Apartment = attr14.Value;
-                    }
+                        XmlNode streetXml = xnode.Attributes.GetNamedItem("STREET");
+                        client.Street = streetXml.Value;
 
-                    using (ApplicationContext db = new ApplicationContext())
-                    {
-                        db.Clients.Add(client);
-                        db.SaveChanges();
+                        XmlNode houseXml = xnode.Attributes.GetNamedItem("HOUSE");
+                        client.House = houseXml.Value;
+
+                        XmlNode apartmentXml = xnode.Attributes.GetNamedItem("APARTMENT");
+                        client.Apartment = apartmentXml.Value;
+
+                        XmlNode altAddressXml = xnode.Attributes.GetNamedItem("ALTADDRESS");
+                        client.AltAddress = altAddressXml.Value;
+
+                        XmlNode cardTypeXml = xnode.Attributes.GetNamedItem("CARDTYPE");
+                        client.CardType = cardTypeXml.Value;
+
+                        XmlNode ownerguidXml = xnode.Attributes.GetNamedItem("OWNERGUID");
+                        client.Ownerguid = ownerguidXml.Value;
+
+                        XmlNode cardperXml = xnode.Attributes.GetNamedItem("CARDPER");
+                        client.Cardper = cardperXml.Value;
+
+                        XmlNode turnoverXml = xnode.Attributes.GetNamedItem("TURNOVER");
+                        client.Turnover = turnoverXml.InnerText;
+
+                        try
+                        {
+                            // Подключаемся к базе данных
+                            using (ApplicationContext db = new ApplicationContext())
+                            {
+                                // В базу данных передаем объект класса "Client", в котором хранятся данные из XML документа
+                                db.Clients.Add(client);
+                                // Сохраняем изменения в базе данных
+                                db.SaveChanges();
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex.Message);                            
+                        }
                     }
                 }
             }

@@ -8,7 +8,7 @@ using UploadXMLConsoleApp;
 namespace UploadXMLConsoleApp.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20210928154340_InitialCreate")]
+    [Migration("20211006173547_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,6 +23,9 @@ namespace UploadXMLConsoleApp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("AltAddress")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Apartment")
                         .HasColumnType("TEXT");
 
@@ -31,6 +34,12 @@ namespace UploadXMLConsoleApp.Migrations
 
                     b.Property<double>("CardCode")
                         .HasColumnType("REAL");
+
+                    b.Property<string>("CardType")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Cardper")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("City")
                         .HasColumnType("TEXT");
@@ -44,13 +53,19 @@ namespace UploadXMLConsoleApp.Migrations
                     b.Property<string>("Firstname")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Gender")
+                    b.Property<string>("FullName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("GenderId")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("House")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Lastname")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Ownerguid")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("PhoneHome")
@@ -66,6 +81,9 @@ namespace UploadXMLConsoleApp.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Surname")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Turnover")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");

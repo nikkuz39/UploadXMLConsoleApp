@@ -18,7 +18,8 @@ namespace UploadXMLConsoleApp.Migrations
                     Lastname = table.Column<string>(type: "TEXT", nullable: true),
                     Firstname = table.Column<string>(type: "TEXT", nullable: true),
                     Surname = table.Column<string>(type: "TEXT", nullable: true),
-                    Gender = table.Column<string>(type: "TEXT", nullable: true),
+                    FullName = table.Column<string>(type: "TEXT", nullable: true),
+                    GenderId = table.Column<string>(type: "TEXT", nullable: true),
                     Birthday = table.Column<string>(type: "TEXT", nullable: true),
                     PhoneHome = table.Column<string>(type: "TEXT", nullable: true),
                     PhoneMobil = table.Column<string>(type: "TEXT", nullable: true),
@@ -26,7 +27,12 @@ namespace UploadXMLConsoleApp.Migrations
                     City = table.Column<string>(type: "TEXT", nullable: true),
                     Street = table.Column<string>(type: "TEXT", nullable: true),
                     House = table.Column<string>(type: "TEXT", nullable: true),
-                    Apartment = table.Column<string>(type: "TEXT", nullable: true)
+                    Apartment = table.Column<string>(type: "TEXT", nullable: true),
+                    AltAddress = table.Column<string>(type: "TEXT", nullable: true),
+                    CardType = table.Column<string>(type: "TEXT", nullable: true),
+                    Ownerguid = table.Column<string>(type: "TEXT", nullable: true),
+                    Cardper = table.Column<string>(type: "TEXT", nullable: true),
+                    Turnover = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {

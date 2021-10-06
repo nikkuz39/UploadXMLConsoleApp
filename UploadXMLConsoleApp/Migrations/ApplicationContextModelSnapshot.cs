@@ -21,6 +21,9 @@ namespace UploadXMLConsoleApp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("AltAddress")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Apartment")
                         .HasColumnType("TEXT");
 
@@ -29,6 +32,12 @@ namespace UploadXMLConsoleApp.Migrations
 
                     b.Property<double>("CardCode")
                         .HasColumnType("REAL");
+
+                    b.Property<string>("CardType")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Cardper")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("City")
                         .HasColumnType("TEXT");
@@ -42,13 +51,19 @@ namespace UploadXMLConsoleApp.Migrations
                     b.Property<string>("Firstname")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Gender")
+                    b.Property<string>("FullName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("GenderId")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("House")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Lastname")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Ownerguid")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("PhoneHome")
@@ -64,6 +79,9 @@ namespace UploadXMLConsoleApp.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Surname")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Turnover")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
